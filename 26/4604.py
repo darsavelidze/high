@@ -20,3 +20,4 @@ for i in range(len(data)):
         m.append(cur)
 
 print(min(m))
+         
