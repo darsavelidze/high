@@ -9,12 +9,18 @@ for line in f:
 
 data = sorted(data, key=lambda x: x[1])
 
-last = data.pop(0)
-k = 1
+handled = [data.pop(0)]
+
 for task in data:
-    if task[0] >= last[1]:
-        k += 1
-        last = task
+    if task[0] >= handled[-1][-1]:
+        handled.append(task)
 
-print(k)
+print(len(handled))
 
+m = []
+handled.pop(-1)
+for task in data:
+    if task[0] >= handled[-1][-1]:
+        m.append(task)
+
+print(10000 - m[-1][-1])
